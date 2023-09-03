@@ -1,7 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
 
-console.log(galleryItems);
+// Change code below this line
 
 const galleryList = document.querySelector(".gallery");
 
@@ -12,6 +11,13 @@ galleryItems.forEach((image) => {
   newImage.src = image.preview; // src dla img
   newLiItem.append(newImage); //img do li
   galleryList.append(newLiItem); //
-  newLiItem.classList.add("gallery__item");
+  newLiItem.classList.add("gallery__item", "gallery__link");
   newImage.classList.add("gallery__image");
+
+  newLiItem.addEventListener("click", displayOriginalImg);
+
+  function displayOriginalImg() {
+    const bigImage = basicLightbox.create(`<img src="${image.original}">`);
+    bigImage.show();
+  }
 });
