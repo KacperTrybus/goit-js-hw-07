@@ -8,6 +8,10 @@ galleryItems.forEach((image) => {
   const newLiItem = document.createElement("li");
   const newDiv = document.createElement("div");
   const newLink = document.createElement("a");
+  newLink.setAttribute("href", `${image.original}`);
+  newLink.addEventListener("click", (event) => {
+    event.preventDefault();
+  });
   const newImage = document.createElement("img");
   newImage.className = "gallery__image";
   newImage.src = image.preview;
